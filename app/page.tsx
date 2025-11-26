@@ -3,6 +3,7 @@ import Footer from '@/components/layout/Footer';
 import HeroSection from '@/components/sections/HeroSection';
 import PriceComparisonSection from '@/components/sections/PriceComparisonSection';
 import ProductDetailSection from '@/components/sections/ProductDetailSection';
+import WhyFarmToBizSection from '@/components/sections/WhyFarmToBizSection';
 import ConvenienceSection from '@/components/sections/ConvenienceSection';
 import SocialProofSection from '@/components/sections/SocialProofSection';
 import CTAFormSection from '@/components/sections/CTAFormSection';
@@ -33,6 +34,7 @@ export default function Home() {
         <HeroSection />
         <PriceComparisonSection />
         <ProductDetailSection />
+        <WhyFarmToBizSection />
         <ConvenienceSection />
         <SocialProofSection />
         <CTAFormSection />
