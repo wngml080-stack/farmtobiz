@@ -37,27 +37,38 @@ export default function FTBWhyChoose() {
     },
   ];
 
+  const scrollToForm = () => {
+    const formSection = document.getElementById('sample-form');
+    if (formSection) {
+      formSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const coupons = [
     {
       icon: Tag,
-      title: '신규 고객 혜택',
-      discount: '30%',
-      description: '첫 주문 시 최대 30% 할인',
+      title: '첫구매 혜택',
+      discount: '5,000원',
+      description: '첫 주문 시 드리는 할인 쿠폰',
       color: 'from-emerald-500 to-green-600',
       validUntil: '2025년 12월 31일까지',
+      action: 'website',
+      buttonText: '웹사이트 바로가기',
     },
     {
       icon: Gift,
-      title: '정기 구매 혜택',
-      discount: '20%',
-      description: '정기 구매 계약 시 매달 20% 할인',
+      title: '무료 샘플 신청시',
+      discount: '3,000원',
+      description: '무료 샘플도 받아보고 주문시 쿠폰 사용도!',
       color: 'from-blue-500 to-cyan-600',
-      validUntil: '연중 상시 진행',
+      validUntil: '2025년 12월 31일까지',
+      action: 'form',
+      buttonText: '무료 샘플 신청하기',
     },
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-12 md:py-16 bg-white">
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Why Choose 섹션 */}
         <div className="mb-20">
@@ -132,12 +143,12 @@ export default function FTBWhyChoose() {
                     {coupon.title}
                   </h3>
 
-                  {/* 할인율 */}
+                  {/* 할인 금액 */}
                   <div className="flex items-baseline gap-2 mb-3">
                     <span className={`text-5xl font-bold bg-gradient-to-r ${coupon.color} bg-clip-text text-transparent`}>
                       {coupon.discount}
                     </span>
-                    <span className="text-gray-600 font-semibold">할인</span>
+                    <span className="text-gray-600 font-semibold">쿠폰</span>
                   </div>
 
                   {/* 설명 */}
@@ -152,9 +163,23 @@ export default function FTBWhyChoose() {
                   </div>
 
                   {/* 버튼 */}
-                  <button className={`w-full py-3 rounded-lg font-bold text-white bg-gradient-to-r ${coupon.color} hover:opacity-90 transition-opacity`}>
-                    지금 바로 신청하기
-                  </button>
+                  {coupon.action === 'website' ? (
+                    <a
+                      href="https://farmtobiz.vercel.app/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`block w-full py-3 rounded-lg font-bold text-white bg-gradient-to-r ${coupon.color} hover:opacity-90 transition-opacity text-center`}
+                    >
+                      {coupon.buttonText}
+                    </a>
+                  ) : (
+                    <button
+                      onClick={scrollToForm}
+                      className={`w-full py-3 rounded-lg font-bold text-white bg-gradient-to-r ${coupon.color} hover:opacity-90 transition-opacity`}
+                    >
+                      {coupon.buttonText}
+                    </button>
+                  )}
                 </div>
 
                 {/* 장식 요소 */}

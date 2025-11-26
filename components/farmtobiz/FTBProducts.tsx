@@ -36,45 +36,61 @@ export default function FTBProducts() {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-gray-50">
-      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-12 md:py-16 bg-gradient-to-br from-gray-50 via-green-50/30 to-emerald-50/30 overflow-hidden">
+      {/* 배경 장식 */}
+      <div className="absolute top-10 right-10 w-64 h-64 bg-green-200/20 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-10 left-10 w-80 h-80 bg-emerald-200/20 rounded-full blur-3xl"></div>
+
+      <div className="container relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* 제목 */}
-        <div className="text-center mb-12">
-          <p className="text-sm font-semibold text-[#006400] mb-2">취급 품목</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+        <div className="text-center mb-16">
+          <p className="text-sm font-bold text-[#006400] mb-3 tracking-wider">취급 품목</p>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
             신선한 식재료, 한곳에서
           </h2>
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            엄선된 최고 품질의 농수산물을 합리적인 가격으로 만나보세요
+          </p>
         </div>
 
-        {/* 4개 카드 그리드 */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* 4개 카드 그리드 - 3D 효과 */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {products.map((product, index) => (
             <div
               key={index}
-              className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+              className="group relative rounded-3xl overflow-hidden transition-all duration-500 transform hover:-translate-y-4 hover:rotate-2"
+              style={{
+                boxShadow: '0 20px 60px -15px rgba(0, 0, 0, 0.3)',
+                perspective: '1000px',
+              }}
             >
               {/* 배경 이미지 */}
               <div className="aspect-[3/4] relative">
                 <img
                   src={product.image}
                   alt={product.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  className="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700"
                 />
-                <div className={`absolute inset-0 bg-gradient-to-t ${product.color} opacity-60`}></div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                <div className={`absolute inset-0 bg-gradient-to-t ${product.color} opacity-50 group-hover:opacity-60 transition-opacity`}></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
               </div>
 
               {/* 텍스트 */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                <product.icon className="w-8 h-8 mb-2" />
-                <h3 className="text-xl font-bold mb-1">{product.title}</h3>
-                <p className="text-sm text-white/90">{product.description}</p>
+              <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform group-hover:translate-y-0 transition-transform">
+                <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                  <product.icon className="w-7 h-7" />
+                </div>
+                <h3 className="text-2xl font-bold mb-2">{product.title}</h3>
+                <p className="text-sm text-white/90 mb-4">{product.description}</p>
 
                 {/* 버튼 */}
-                <button className="mt-4 bg-white text-gray-900 px-4 py-2 rounded-lg font-semibold text-sm hover:bg-gray-100 transition-colors">
-                  자세히 보기
+                <button className="w-full bg-white/90 backdrop-blur-sm text-gray-900 px-4 py-2.5 rounded-xl font-bold text-sm hover:bg-white transition-all transform group-hover:scale-105 shadow-lg">
+                  자세히 보기 →
                 </button>
               </div>
+
+              {/* 3D 광택 효과 */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
             </div>
           ))}
         </div>

@@ -3,12 +3,12 @@
 import FTBHeader from '@/components/farmtobiz/FTBHeader';
 import FTBHero from '@/components/farmtobiz/FTBHero';
 import FTBAbout from '@/components/farmtobiz/FTBAbout';
-import FTBProducts from '@/components/farmtobiz/FTBProducts';
+import FTBCategories from '@/components/farmtobiz/FTBCategories';
 import FTBBenefits from '@/components/farmtobiz/FTBBenefits';
 import FTBVideo from '@/components/farmtobiz/FTBVideo';
-import FTBCategories from '@/components/farmtobiz/FTBCategories';
 import FTBTestimonials from '@/components/farmtobiz/FTBTestimonials';
 import FTBWhyChoose from '@/components/farmtobiz/FTBWhyChoose';
+import FTBSampleForm from '@/components/farmtobiz/FTBSampleForm';
 import FTBFooter from '@/components/farmtobiz/FTBFooter';
 
 export default function Home() {
@@ -18,12 +18,12 @@ export default function Home() {
       <main>
         <FTBHero />
         <FTBAbout />
-        <FTBProducts />
+        <FTBCategories />
         <FTBBenefits />
         <FTBVideo />
-        <FTBCategories />
         <FTBTestimonials />
         <FTBWhyChoose />
+        <FTBSampleForm />
       </main>
       <FTBFooter />
     </div>
