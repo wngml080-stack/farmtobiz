@@ -5,7 +5,7 @@ import { sampleFormSchema } from '@/lib/validation';
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
 const n8nWebhookUrl = process.env.N8N_WEBHOOK_URL;
-const googleScriptUrl = process.env.GOOGLE_SCRIPT_URL || 'https://script.google.com/macros/s/AKfycbzb7WBFHhO9dvYRvWEFqBYZ70PrZCN7p3xXWH5TY0Hh4UhmDRE7sxbYr__499MtJBubJg/exec';
+const googleScriptUrl = process.env.GOOGLE_SCRIPT_URL || 'https://script.google.com/macros/s/AKfycbzIVhj-3QeVtJOJDzEN7darxxdUVdy2QLWytFGW59PD_yqpAQB9N62xEXd8Z9OiDoL3Kg/exec';
 
 export async function POST(request: NextRequest) {
   try {
