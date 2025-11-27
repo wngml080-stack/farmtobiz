@@ -5,7 +5,7 @@ import { sampleFormSchema } from '@/lib/validation';
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
 const n8nWebhookUrl = process.env.N8N_WEBHOOK_URL;
-const googleScriptUrl = process.env.GOOGLE_SCRIPT_URL || 'https://script.google.com/macros/s/AKfycbwe9_W020oFH2OCBSzwurOVQy6uNO5eYy2m_Hp90d3iAysvk2KMQ4pL-KFybNluIdU_4w/exec';
+const googleScriptUrl = process.env.GOOGLE_SCRIPT_URL || 'https://script.google.com/macros/s/AKfycbwi4mxM2TNEozAtu_VHwE1kLL8aZUn4-mIYAleX5Wzwt_Kq_WPdPuKSPC54WfUrnFzvog/exec';
 
 export async function POST(request: NextRequest) {
   try {
@@ -80,7 +80,13 @@ export async function POST(request: NextRequest) {
 
     // Google Sheets로 전송
     try {
-      await fetch(googleScriptUrl, {
+      console.log('Sending to Google Sheets:', {
+        name: body.name,
+        email: body.email,
+        phone: body.phone,
+      });
+
+      const googleResponse = await fetch(googleScriptUrl, {
         method: 'POST',
         mode: 'no-cors',
         headers: {
@@ -92,6 +98,8 @@ export async function POST(request: NextRequest) {
           phone: body.phone,
         }),
       });
+
+      console.log('Google Sheets response status:', googleResponse.status);
     } catch (googleError) {
       // Google Sheets 실패해도 계속 진행
       console.error('Google Sheets error:', googleError);
