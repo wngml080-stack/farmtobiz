@@ -88,7 +88,7 @@ export async function POST(request: NextRequest) {
 
       const googleResponse = await fetch(googleScriptUrl, {
         method: 'POST',
-        mode: 'no-cors',
+        redirect: 'follow',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -99,7 +99,9 @@ export async function POST(request: NextRequest) {
         }),
       });
 
+      const responseText = await googleResponse.text();
       console.log('Google Sheets response status:', googleResponse.status);
+      console.log('Google Sheets response:', responseText);
     } catch (googleError) {
       // Google Sheets 실패해도 계속 진행
       console.error('Google Sheets error:', googleError);
