@@ -26,9 +26,14 @@ export default function FTBBenefits() {
   ];
 
   return (
-    <section className="py-12 md:py-16 bg-white">
-      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* 제목 */}
+    <section className="py-12 md:py-16 bg-gradient-to-br from-slate-50 via-blue-50/20 to-emerald-50/30 relative overflow-hidden">
+      {/* 배경 장식 요소 */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-1/3 left-0 w-96 h-96 bg-blue-200/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-emerald-200/15 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12">
           <p className="text-sm font-semibold text-[#006400] mb-2">3가지 장점</p>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
@@ -36,19 +41,16 @@ export default function FTBBenefits() {
           </h2>
         </div>
 
-        {/* 3개 카드 그리드 */}
         <div className="grid md:grid-cols-3 gap-8">
           {benefits.map((benefit, index) => (
             <div
               key={index}
-              className="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 flex flex-col items-center text-center"
+              className="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 flex flex-col items-center justify-center text-center"
             >
-              {/* 아이콘 */}
               <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${benefit.color} flex items-center justify-center mb-6`}>
                 <benefit.icon className="w-8 h-8 text-white" />
               </div>
 
-              {/* 텍스트 */}
               <h3 className="text-xl font-bold text-gray-900 mb-3">
                 {benefit.title}
               </h3>
@@ -56,7 +58,6 @@ export default function FTBBenefits() {
                 {benefit.description}
               </p>
 
-              {/* 장식 요소 */}
               <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-br ${benefit.color} opacity-10 rounded-bl-full`}></div>
             </div>
           ))}

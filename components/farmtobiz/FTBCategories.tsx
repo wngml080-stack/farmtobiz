@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Carrot, Apple, Fish, Beef } from 'lucide-react';
+import { Carrot, Apple, Fish, Wheat } from 'lucide-react';
 
 export default function FTBCategories() {
   const categories = [
@@ -27,17 +27,23 @@ export default function FTBCategories() {
       description: '매일 새벽 산지 직송',
     },
     {
-      icon: Beef,
-      title: '축산물',
+      icon: Wheat,
+      title: '곡물&견과류',
       count: '60+ 품목',
-      image: 'https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=800&h=600&fit=crop&q=80',
-      description: 'HACCP 인증 신선육',
+      image: 'https://images.unsplash.com/photo-1608797178974-15b35a64ede9?w=800&h=600&fit=crop&q=80',
+      description: '영양 가득한 곡물과 견과류',
     },
   ];
 
   return (
-    <section className="py-12 md:py-16 bg-white">
-      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-12 md:py-16 bg-gradient-to-b from-white via-emerald-50/30 to-slate-50 relative overflow-hidden">
+      {/* 배경 장식 요소 */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-green-200/15 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-emerald-300/10 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* 제목 */}
         <div className="text-center mb-12">
           <p className="text-sm font-semibold text-[#006400] mb-2">카테고리</p>
@@ -45,7 +51,7 @@ export default function FTBCategories() {
             다양한 품목을 한 곳에서
           </h2>
           <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-            채소부터 축산물까지, 필요한 모든 식재료를 팜투비즈에서 만나보세요
+            채소부터 곡물&견과류까지, 필요한 모든 식재료를 팜투비즈에서 만나보세요
           </p>
         </div>
 

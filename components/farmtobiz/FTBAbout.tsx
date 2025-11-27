@@ -5,8 +5,14 @@ import { Award, DollarSign, Check } from 'lucide-react';
 
 export default function FTBAbout() {
   return (
-    <section className="py-12 md:py-16 bg-white">
-      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-12 md:py-16 bg-gradient-to-br from-slate-50 via-white to-emerald-50/40 relative overflow-hidden">
+      {/* 배경 장식 요소 */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-20 right-10 w-96 h-96 bg-emerald-200/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-10 w-80 h-80 bg-green-200/15 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* 왼쪽: 이미지 */}
           <div className="relative">

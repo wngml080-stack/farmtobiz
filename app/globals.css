@@ -230,6 +230,15 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+@keyframes bounce-x {
+  0%, 100% {
+    transform: translateX(0) scale(1);
+  }
+  50% {
+    transform: translateX(5px) scale(1.1);
+  }
+}
+
 .animate-fade-in-up {
   animation: fadeInUp 0.8s cubic-bezier(0.23, 1, 0.320, 1);
 }
@@ -256,6 +265,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .animate-pulse-glow {
   animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-bounce-x {
+  animation: bounce-x 1.5s ease-in-out infinite;
 }
 
 /* 딜레이 클래스 */

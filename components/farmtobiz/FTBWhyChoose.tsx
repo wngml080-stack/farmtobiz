@@ -68,8 +68,15 @@ export default function FTBWhyChoose() {
   ];
 
   return (
-    <section className="py-12 md:py-16 bg-white">
-      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-12 md:py-16 bg-gradient-to-br from-white via-slate-50/50 to-emerald-50/40 relative overflow-hidden">
+      {/* 배경 장식 요소 */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-emerald-200/15 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-200/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-green-200/10 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Why Choose 섹션 */}
         <div className="mb-20">
           {/* 제목 */}
@@ -88,25 +95,23 @@ export default function FTBWhyChoose() {
             {benefits.map((benefit, index) => (
               <div
                 key={index}
-                className="flex items-center justify-center p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors duration-200"
+                className="flex gap-4 p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors duration-200"
               >
-                <div className="flex flex-col items-center text-center">
-                  {/* 아이콘 */}
-                  <div className="mb-4">
-                    <div className="w-16 h-16 rounded-2xl bg-[#006400] flex items-center justify-center shadow-lg">
-                      <benefit.icon className="w-8 h-8 text-white" />
-                    </div>
+                {/* 아이콘 */}
+                <div className="flex-shrink-0">
+                  <div className="w-12 h-12 rounded-lg bg-[#006400] flex items-center justify-center">
+                    <benefit.icon className="w-6 h-6 text-white" />
                   </div>
+                </div>
 
-                  {/* 텍스트 */}
-                  <div>
-                    <h3 className="font-bold text-gray-900 mb-2 text-lg">
-                      {benefit.title}
-                    </h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      {benefit.description}
-                    </p>
-                  </div>
+                {/* 텍스트 */}
+                <div>
+                  <h3 className="font-bold text-gray-900 mb-2">
+                    {benefit.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {benefit.description}
+                  </p>
                 </div>
               </div>
             ))}

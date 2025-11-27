@@ -14,19 +14,29 @@ export default function FTBHeader() {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-lg">
-        <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full px-6 md:px-12 lg:px-16">
           <div className="flex justify-between items-center py-4">
             {/* 로고 */}
             <div className="flex items-center gap-3 transform hover:scale-105 transition-transform cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-              <img 
-                src="/images/farmtobiz-logo.png" 
-                alt="Farm to Biz" 
+              <img
+                src="/images/farmtobiz-logo.png"
+                alt="Farm to Biz"
                 className="h-12 md:h-16 w-auto object-contain"
               />
             </div>
 
             {/* 메뉴 */}
-            <nav className="flex items-center gap-4 md:gap-6">
+            <nav className="flex items-center gap-3 md:gap-6 lg:gap-8">
+              {/* 더 궁금한 문의는 텍스트 (데스크탑만 표시) */}
+              <div className="hidden lg:flex items-center gap-2">
+                <span className="text-base text-gray-800 font-bold">
+                  더 궁금한 문의는
+                </span>
+                <svg className="w-5 h-5 text-[#006400] animate-bounce-x" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </div>
+
               <a
                 href="https://www.instagram.com/farmto_biz?igsh=N3F4OWNkNHAxb3hz&utm_source=qr"
                 target="_blank"

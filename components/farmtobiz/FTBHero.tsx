@@ -64,20 +64,38 @@ export default function FTBHero() {
         </div>
 
         {/* 3개 장점 카드 - 3D 효과 */}
-        <div className="grid md:grid-cols-3 gap-8 mt-16 md:mt-20 max-w-6xl mx-auto mb-0">
+        <div className="grid md:grid-cols-3 gap-8 mt-16 md:mt-20 max-w-6xl mx-auto mb-0" style={{ perspective: '2000px' }}>
           <div
-            className="group relative bg-white rounded-3xl p-8 transition-all duration-500 transform hover:-translate-y-3 hover:rotate-1"
+            className="group relative bg-gradient-to-br from-white via-white to-emerald-50/30 rounded-3xl p-8 transition-all duration-700 ease-out"
             style={{
-              boxShadow: '0 10px 40px -10px rgba(0, 100, 0, 0.3)',
-              perspective: '1000px',
+              transformStyle: 'preserve-3d',
+              boxShadow: '0 20px 60px -15px rgba(0, 100, 0, 0.4), 0 10px 20px -10px rgba(0, 0, 0, 0.1)',
+            }}
+            onMouseMove={(e) => {
+              const card = e.currentTarget;
+              const rect = card.getBoundingClientRect();
+              const x = e.clientX - rect.left;
+              const y = e.clientY - rect.top;
+              const centerX = rect.width / 2;
+              const centerY = rect.height / 2;
+              const rotateX = (y - centerY) / 10;
+              const rotateY = (centerX - x) / 10;
+              card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-12px) scale(1.05)`;
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px) scale(1)';
             }}
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-[#006400]/5 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            <div className="relative">
-              <div className="w-16 h-16 bg-gradient-to-br from-[#006400] to-emerald-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform">
-                <Truck className="w-8 h-8 text-white" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#006400]/10 via-transparent to-emerald-500/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="absolute inset-0 rounded-3xl overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#006400]/20 to-transparent rounded-bl-full transform translate-x-8 -translate-y-8 group-hover:translate-x-4 group-hover:-translate-y-4 transition-transform duration-500"></div>
+            </div>
+            <div className="relative flex flex-col items-center text-center" style={{ transform: 'translateZ(50px)' }}>
+              <div className="w-20 h-20 bg-gradient-to-br from-[#006400] via-emerald-600 to-emerald-700 rounded-2xl flex items-center justify-center mb-6 shadow-2xl group-hover:shadow-emerald-500/50 group-hover:scale-110 transition-all duration-500 relative">
+                <div className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent rounded-2xl"></div>
+                <Truck className="w-10 h-10 text-white relative z-10" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">산지 직송</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-[#006400] transition-colors duration-300">산지 직송</h3>
               <p className="text-gray-600 leading-relaxed">
                 중간 유통 단계 제거, 농장에서 바로
               </p>
@@ -85,18 +103,36 @@ export default function FTBHero() {
           </div>
 
           <div
-            className="group relative bg-white rounded-3xl p-8 transition-all duration-500 transform hover:-translate-y-3 hover:rotate-1"
+            className="group relative bg-gradient-to-br from-white via-white to-teal-50/30 rounded-3xl p-8 transition-all duration-700 ease-out"
             style={{
-              boxShadow: '0 10px 40px -10px rgba(5, 150, 105, 0.3)',
-              perspective: '1000px',
+              transformStyle: 'preserve-3d',
+              boxShadow: '0 20px 60px -15px rgba(5, 150, 105, 0.4), 0 10px 20px -10px rgba(0, 0, 0, 0.1)',
+            }}
+            onMouseMove={(e) => {
+              const card = e.currentTarget;
+              const rect = card.getBoundingClientRect();
+              const x = e.clientX - rect.left;
+              const y = e.clientY - rect.top;
+              const centerX = rect.width / 2;
+              const centerY = rect.height / 2;
+              const rotateX = (y - centerY) / 10;
+              const rotateY = (centerX - x) / 10;
+              card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-12px) scale(1.05)`;
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px) scale(1)';
             }}
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            <div className="relative">
-              <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform">
-                <DollarSign className="w-8 h-8 text-white" />
+            <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-teal-500/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="absolute inset-0 rounded-3xl overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-emerald-500/20 to-transparent rounded-bl-full transform translate-x-8 -translate-y-8 group-hover:translate-x-4 group-hover:-translate-y-4 transition-transform duration-500"></div>
+            </div>
+            <div className="relative flex flex-col items-center text-center" style={{ transform: 'translateZ(50px)' }}>
+              <div className="w-20 h-20 bg-gradient-to-br from-emerald-500 via-teal-600 to-cyan-700 rounded-2xl flex items-center justify-center mb-6 shadow-2xl group-hover:shadow-teal-500/50 group-hover:scale-110 transition-all duration-500 relative">
+                <div className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent rounded-2xl"></div>
+                <DollarSign className="w-10 h-10 text-white relative z-10" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">가격 투명</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-emerald-600 transition-colors duration-300">가격 투명</h3>
               <p className="text-gray-600 leading-relaxed">
                 가락시장 대비 평균 15% 저렴
               </p>
@@ -104,18 +140,36 @@ export default function FTBHero() {
           </div>
 
           <div
-            className="group relative bg-white rounded-3xl p-8 transition-all duration-500 transform hover:-translate-y-3 hover:rotate-1"
+            className="group relative bg-gradient-to-br from-white via-white to-lime-50/30 rounded-3xl p-8 transition-all duration-700 ease-out"
             style={{
-              boxShadow: '0 10px 40px -10px rgba(34, 197, 94, 0.3)',
-              perspective: '1000px',
+              transformStyle: 'preserve-3d',
+              boxShadow: '0 20px 60px -15px rgba(34, 197, 94, 0.4), 0 10px 20px -10px rgba(0, 0, 0, 0.1)',
+            }}
+            onMouseMove={(e) => {
+              const card = e.currentTarget;
+              const rect = card.getBoundingClientRect();
+              const x = e.clientX - rect.left;
+              const y = e.clientY - rect.top;
+              const centerX = rect.width / 2;
+              const centerY = rect.height / 2;
+              const rotateX = (y - centerY) / 10;
+              const rotateY = (centerX - x) / 10;
+              card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-12px) scale(1.05)`;
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px) scale(1)';
             }}
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            <div className="relative">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-lime-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform">
-                <Leaf className="w-8 h-8 text-white" />
+            <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 via-transparent to-lime-500/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="absolute inset-0 rounded-3xl overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-500/20 to-transparent rounded-bl-full transform translate-x-8 -translate-y-8 group-hover:translate-x-4 group-hover:-translate-y-4 transition-transform duration-500"></div>
+            </div>
+            <div className="relative flex flex-col items-center text-center" style={{ transform: 'translateZ(50px)' }}>
+              <div className="w-20 h-20 bg-gradient-to-br from-green-500 via-lime-600 to-green-700 rounded-2xl flex items-center justify-center mb-6 shadow-2xl group-hover:shadow-lime-500/50 group-hover:scale-110 transition-all duration-500 relative">
+                <div className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent rounded-2xl"></div>
+                <Leaf className="w-10 h-10 text-white relative z-10" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">신선 보장</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-green-600 transition-colors duration-300">신선 보장</h3>
               <p className="text-gray-600 leading-relaxed">
                 새벽 배송으로 당일 신선도 유지
               </p>
