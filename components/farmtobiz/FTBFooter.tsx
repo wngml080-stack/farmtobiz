@@ -1,16 +1,16 @@
 'use client';
 
 import React from 'react';
-import { Mail, Phone, MapPin, Instagram, Facebook, Youtube, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Instagram, Search } from 'lucide-react';
 
 export default function FTBFooter() {
   const categories = [
-    '신선 채소',
-    '프리미엄 과일',
+    '과일',
+    '채소',
+    '곡물',
+    '견과류',
     '수산물',
-    '축산물',
-    '가공식품',
-    '냉동식품',
+    '기타',
   ];
 
   const news = [
@@ -51,31 +51,30 @@ export default function FTBFooter() {
               농장에서 비즈니스까지, 최고의 농수산물을 합리적인 가격에 공급하는 B2B 플랫폼입니다.
             </p>
 
-            {/* 소셜 미디어 */}
+            {/* 연락처 아이콘 */}
             <div className="flex gap-3">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/farmto_biz?igsh=N3F4OWNkNHAxb3hz&utm_source=qr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-gray-800 hover:bg-[#006400] flex items-center justify-center transition-colors"
+                aria-label="Instagram"
               >
                 <Instagram className="w-4 h-4" />
               </a>
               <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="tel:031-555-5555"
                 className="w-9 h-9 rounded-full bg-gray-800 hover:bg-[#006400] flex items-center justify-center transition-colors"
+                aria-label="전화"
               >
-                <Facebook className="w-4 h-4" />
+                <Phone className="w-4 h-4" />
               </a>
               <a
-                href="https://youtube.com"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="mailto:wngml080@gmail.com"
                 className="w-9 h-9 rounded-full bg-gray-800 hover:bg-[#006400] flex items-center justify-center transition-colors"
+                aria-label="이메일"
               >
-                <Youtube className="w-4 h-4" />
+                <Mail className="w-4 h-4" />
               </a>
             </div>
           </div>
@@ -114,40 +113,40 @@ export default function FTBFooter() {
             </ul>
           </div>
 
-          {/* 4. 고객센터 & 뉴스레터 */}
+          {/* 4. 고객센터 & 문의내용 검색 */}
           <div>
             <h3 className="text-white font-bold text-lg mb-4">고객센터</h3>
             <ul className="space-y-3 mb-6">
               <li className="flex items-start gap-2 text-sm">
                 <Phone className="w-4 h-4 mt-0.5 flex-shrink-0 text-[#006400]" />
                 <div>
-                  <div className="font-semibold text-white">1588-1234</div>
+                  <div className="font-semibold text-white">031-555-5555</div>
                   <div className="text-xs text-gray-500">평일 09:00 - 18:00</div>
                 </div>
               </li>
               <li className="flex items-start gap-2 text-sm">
                 <Mail className="w-4 h-4 mt-0.5 flex-shrink-0 text-[#006400]" />
-                <a href="mailto:contact@farmtobiz.com" className="hover:text-[#006400] transition-colors">
-                  contact@farmtobiz.com
+                <a href="mailto:wngml080@gmail.com" className="hover:text-[#006400] transition-colors">
+                  wngml080@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-2 text-sm">
                 <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0 text-[#006400]" />
-                <div>서울특별시 강남구<br />테헤란로 123</div>
+                <div>서울특별시 강남구<br />테헤란로 12345</div>
               </li>
             </ul>
 
-            {/* 뉴스레터 구독 */}
+            {/* 문의내용 검색하기 */}
             <div>
-              <h4 className="text-white font-semibold text-sm mb-3">뉴스레터 구독</h4>
+              <h4 className="text-white font-semibold text-sm mb-3">문의내용 검색하기</h4>
               <div className="flex gap-2">
                 <input
-                  type="email"
-                  placeholder="이메일 주소"
+                  type="text"
+                  placeholder="검색어를 입력하세요"
                   className="flex-1 px-3 py-2 rounded-lg bg-gray-800 border border-gray-700 text-sm focus:outline-none focus:border-[#006400] transition-colors"
                 />
                 <button className="w-10 h-10 rounded-lg bg-[#006400] hover:bg-[#004d00] flex items-center justify-center transition-colors flex-shrink-0">
-                  <Send className="w-4 h-4 text-white" />
+                  <Search className="w-4 h-4 text-white" />
                 </button>
               </div>
             </div>

@@ -88,23 +88,25 @@ export default function FTBWhyChoose() {
             {benefits.map((benefit, index) => (
               <div
                 key={index}
-                className="flex gap-4 p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors duration-200"
+                className="flex items-center justify-center p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors duration-200"
               >
-                {/* 아이콘 */}
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 rounded-lg bg-[#006400] flex items-center justify-center">
-                    <benefit.icon className="w-6 h-6 text-white" />
+                <div className="flex flex-col items-center text-center">
+                  {/* 아이콘 */}
+                  <div className="mb-4">
+                    <div className="w-16 h-16 rounded-2xl bg-[#006400] flex items-center justify-center shadow-lg">
+                      <benefit.icon className="w-8 h-8 text-white" />
+                    </div>
                   </div>
-                </div>
 
-                {/* 텍스트 */}
-                <div>
-                  <h3 className="font-bold text-gray-900 mb-2">
-                    {benefit.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {benefit.description}
-                  </p>
+                  {/* 텍스트 */}
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2 text-lg">
+                      {benefit.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      {benefit.description}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}
@@ -165,7 +167,7 @@ export default function FTBWhyChoose() {
                   {/* 버튼 */}
                   {coupon.action === 'website' ? (
                     <a
-                      href="https://farmtobiz.vercel.app/"
+                      href="https://farmtobiz-wholesaler.vercel.app/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className={`block w-full py-3 rounded-lg font-bold text-white bg-gradient-to-r ${coupon.color} hover:opacity-90 transition-opacity text-center`}

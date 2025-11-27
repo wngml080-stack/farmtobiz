@@ -53,7 +53,9 @@ export default function FTBHeader() {
               </button>
 
               <a
-                href="/"
+                href="https://farmtobiz-wholesaler.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 text-gray-700 hover:text-[#006400] transition-all transform hover:scale-110"
               >
                 <Globe className="w-5 h-5" />
