@@ -33,52 +33,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Supabase 클라이언트 생성
-    const supabase = createClient(supabaseUrl, supabaseServiceKey);
-
-    // Supabase에 데이터 저장
-    const { data, error } = await supabase.from('leads').insert([
-      {
-        name: body.name,
-        email: body.email,
-        phone: body.phone,
-        interested_products: body.interestedProducts,
-        privacy_consent: body.privacyConsent,
-        // UTM 파라미터
-        utm_source: body.utm_source || null,
-        utm_medium: body.utm_medium || null,
-        utm_campaign: body.utm_campaign || null,
-        utm_term: body.utm_term || null,
-        utm_content: body.utm_content || null,
-        // 세션 정보
-        referrer: body.referrer || null,
-        first_page: body.first_page || null,
-        session_start: body.session_start || null,
-        // 디바이스 정보
-        device_type: body.device_type || null,
-        screen_width: body.screen_width || null,
-        screen_height: body.screen_height || null,
-        // 행동 정보
-        time_on_page: body.time_on_page || null,
-        scroll_depth: body.scroll_depth || null,
-        cta_clicks: body.cta_clicks || null,
-        // 타임스탬프
-        created_at: new Date().toISOString(),
-      },
-    ]);
-
-    if (error) {
-      console.error('Supabase error:', error);
-      return NextResponse.json(
-        {
-          success: false,
-          message: '데이터 저장 중 오류가 발생했습니다',
-        },
-        { status: 500 }
-      );
-    }
-
-    // Google Sheets로 전송
+    // Google Sheets로 전송 (먼저 실행)
     try {
       console.log('Sending to Google Sheets:', {
         name: body.name,
